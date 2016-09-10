@@ -11,7 +11,6 @@ router.get('/orgs/view/:charity_id', function(req, res) {
     request(requesturl, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             var charity = JSON.parse(response.body);
-            console.log(charity.clients);
             charity.followers = [{ "name": "Jim Deadly" },{ "name": "Maria Helpful" }];
             res.render('orgs/view', { 'charity': charity })
         } else {
@@ -36,8 +35,24 @@ router.get('/orgs/view/', function(req, res) {
     // res.render('orgs/list', { 'charities': charities })
 })
 
+router.get('/orgs/view/code/:code', function(req, res) {
+    var requesturl = 'http://django.tyndyll.net/charities/clients/' + req.params.code + '/organisations?format=json';    
+    // This is where we'd make a request to an API
+    request(requesturl, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var detail = JSON.parse(body);
+            var charities = detail.results;
+            var count = detail.count;
+            // console.log(charities);
+            res.render('orgs/list', { 'charities': charities, 'total': count })
+        } else {
+            res.render('ohsnap/404')
+        }
+    });
+    // res.render('orgs/list', { 'charities': charities })
+})
+
 router.post('/orgs/follow', function(req, res) {
-    console.log(req.body);
     res.render('ohsnap/yourock')
 })
 
