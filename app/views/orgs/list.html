@@ -27,25 +27,25 @@
   <table>
   <thead>
     <tr>
-      <th scope="col">Organisation</th>
-      <th class="numeric" scope="col">Website</th>
-      <th>Join In</th>
+      <th scope="col">Organisation - Click to Learn More</th>
+      <th>Website</th>
     </tr>
   </thead>
   <tbody>
   {% for charity in charities %}
     <tr>
-      <td>{{ charity.name }}</td>
-      <td><a href="http://{{ charity.website }}" target="_blank">{{ charity.website }}</a> </td>
       <td>
-<!-- 		<form action="/orgs/follow" method="post" class="form">
+      <a href="/orgs/view/{{charity.charity_id}}">{{ charity.name }}</a> </td>
+      <td><a href="http://{{ charity.website }}" target="_blank">{{ charity.website }}</a> </td>
+<!--      <td>
+ 		<form action="/orgs/follow" method="post" class="form">
 		    <div class="form-group">
 		        <input type="submit" class="button" value="I'm In.">
 		        <input type="hidden" name="url" value="{{ charity.url }}">
 		    </div>
-		</form> -->
+		</form> 
 		<a href="/orgs/view/{{charity.charity_id}}">Find out more...</a>
-      </td>
+      </td>-->
     </tr>
 {% endfor %}    
   </tbody>
