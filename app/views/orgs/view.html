@@ -15,29 +15,55 @@
     {{charity.mission}}
 </p>
 
-
-
-
-<div class="text">
-    <h2 class="heading-large">Volunteers</h2> 
-	    {% for follower in charity.followers %}
-			<div class="notice">
-			    <img class="avatar" src="/public/images/avatar.jpeg" alt="avatar" />{{ follower.name }}
-			    <br>
-			</div>
-    {% endfor %}
-</div>
-
-
-<br>
 <div class="grid-row">
-    <form action="/orgs/follow" method="post" class="form">
+    <div class="column-half">
+        <div class="govuk-box-highlight">
+            <h1 class="bold-large">On The Clock</h1>
+            <p>
+                People have provided help to the tune of
+                <br>
+                <strong class="heading-medium">14 hours</strong>
+                <br> This month
+                <br>
+            </p>
+        </div>
+    </div>
+    <div class="column-half">
+        <div class="govuk-box-highlight">
+            <h1 class="bold-large">Rasing your Game</h1>
+            <p>
+                People have helped raise
+                <br>
+                <strong class="heading-medium">£1,687</strong>
+                <br> in total
+            </p>
+        </div>
+    </div>
+</div>
+<h2 class="heading-large">People Helping Out</h2> 
+{% for follower in charity.followers %}
+<div class="notice">
+    <img class="avatar" src="/public/images/avatar.jpeg" alt="avatar" />{{ follower.name }}
+    <br>
+</div>
+{% endfor %}
+
+    <h3 class="heading-medium">Want to join in?</h3>
+
+    <p>
+    This organisation works in the following areas:
+    </p>
+
+    <p>
+    They need people that can:
+    </p>
+
+    <form action="/orgs/follow" method="post" class="form">    
         <div class="form-group">
-            <input type="submit" class="button" value="Follow!">
+            <input type="submit" class="button" value="I'm In.">
             <input type="hidden" name="charity_id" value="{{ charity.name }}">
         </div>
     </form>
-</div>
 
 </main>
 

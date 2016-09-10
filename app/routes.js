@@ -89,16 +89,20 @@ router.post('/orgs/follow', function(req, res) {
         //     }
         // });
 
-        var charity = {
-            "charity_id": "12345",
-            "name": "Awesome Badger Charity",
-            "registered": "19790201",
-            "address": "1, the street, the town, the world, BT1XXp",
-            "website": "http://example.org",
-            "email": "blah@example.org",
-            "phone": "28949128741",
-            "mission": "to save all the badgers from guns"
-        };
+    var charity = {
+        "charity_id": "12345",
+        "name": "Awesome Badger Charity",
+        "registered": "19790201",
+        "address": "1, the street, the town, the world, BT1XXp",
+        "website": "http://example.org",
+        "email": "blah@example.org",
+        "phone": "28949128741",
+        "mission": "to save all the badgers from guns",
+        "followers": [
+            { "name": "Jim Deadly" },
+            { "name": "Maria Helpful" },
+        ]
+    };
 
         console.log(req.body);
     res.render('orgs/view', { 'charity': charity })
