@@ -15,6 +15,12 @@
     '{{ charity.name }}'
   </p>
 
+
+<form action="/orgs/follow" method="post" class="form">
+	<div class="form-group">
+      <input type="submit" class="button" value="Follow!">
+      <input type="hidden" name="charity_id" value="{{ charity.name }}">
+    </div>
 </main>
 
 {% endblock %}
