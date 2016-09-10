@@ -7,20 +7,38 @@
 {% block content %}
 
 <main id="content" role="main">
+<h1 class="heading-xlarge">
+<span class="heading-secondary"><a href="{{charity.website}}" target="_blank">{{charity.website}}</a></span>
+{{charity.name}}
+</h1>
+<p class="lede">
+    {{charity.mission}}
+</p>
 
-  <h1 class="heading-xlarge">
-    Organisation Data
-  </h1>
-  <p class="lede">
-    '{{ charity.name }}'
-  </p>
 
 
-<form action="/orgs/follow" method="post" class="form">
-	<div class="form-group">
-      <input type="submit" class="button" value="Follow!">
-      <input type="hidden" name="charity_id" value="{{ charity.name }}">
-    </div>
+
+<div class="text">
+    <h2 class="heading-large">Volunteers</h2> 
+	    {% for follower in charity.followers %}
+			<div class="notice">
+			    <img class="avatar" src="/public/images/avatar.jpeg" alt="avatar" />{{ follower.name }}
+			    <br>
+			</div>
+    {% endfor %}
+</div>
+
+
+<br>
+<div class="grid-row">
+    <form action="/orgs/follow" method="post" class="form">
+        <div class="form-group">
+            <input type="submit" class="button" value="Follow!">
+            <input type="hidden" name="charity_id" value="{{ charity.name }}">
+        </div>
+    </form>
+</div>
+
 </main>
 
 {% endblock %}
