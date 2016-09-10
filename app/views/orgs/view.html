@@ -43,8 +43,8 @@
 <h2 class="heading-large">People Helping Out</h2> 
 {% for follower in charity.followers %}
 <div class="notice">
-    <img class="avatar" src="/public/images/avatar.jpeg" alt="avatar" />{{ follower.name }}
-    <br>
+    <img class="avatar" src="/public/images/avatar.jpeg" alt="avatar" />
+    <a href="/volunteers/1234">{{ follower.name }}</a>    
 </div>
 {% endfor %}
 
