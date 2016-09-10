@@ -1,7 +1,7 @@
 {% extends "layout_unbranded.html" %}
 
 {% block page_title %}
-  COOL NAME THING
+  VolunteerMe
 {% endblock %}
 
 {% block content %}
@@ -10,23 +10,84 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">
-        Want to help the world be more awesome? Volunteer. 
-        <span class="heading-secondary">{{releaseVersion}}</span>
+      <h1 class="heading-xlarge" style="color: #2B8CC4;">
+        Want to help the world be more awesome? Volunteer.
+        <!-- <span class="heading-secondary">{{releaseVersion}}</span> -->
       </h1>
-      <p>
+      <h3 class="heading-medium">
         Volunteering is fun and even better, you are helping people make the world better.
-      </p>
+      </h3>
+      
+      <div class="grid-row" style="padding:20px; text-align: center">
 
+        <div class="column-one-half">
+            <a class="button button" href="#volunteer" role="button" style="background-color: #85994B;">I want to volunteer</a>
+        </div>
 
-      <h2 class="heading-medium">See how your friends are helping the world get super cool.</h2>
+        <div class="column-one-half">
+            <a class="button button" href="#recruit" role="button" style="background-color: #85994B;">I need volunteers</a>
+        </div>
 
-			<h2 class="heading-medium">Somebody just did something amazing, you wont believe what happened next</h2>
+      </div>
+<!-- 
+
+      <h2 class="heading-medium"><a href="/#signin">See how your friends are helping the world get super cool.(SIGN IN/UP)</a></h2>
 
 			<ul class="list list-bullet">
 				<li><a href="/examples">Vicki Volunteer just saved 14 Badgers from robotic death machines</a></li>
 			</ul>
 
+ -->      <div>
+      <h3 id="volunteer" class="heading-medium">What is VolunteerMe?</h3>
+      <p>VolunteerMe is the easy and fun way to meet people, gain confidence and become empowered, all for the good of your local community!</p>
+      <p>We can connect  you and your friends to the causes you are interested in.</p>
+      </div>
+      <div>
+      <h3 id="recruit" class="heading-medium">Random heading</h3>
+      <p>VolunteerMe is committed to pairing your non-profit organisation with motivated people who want to get out there and make a difference in the community.</p>
+      <p>Register below to gain access to:</p>
+      <div class="grid-row">
+
+        <div class="column-one-third" style="border-style:solid; margin:2px; border-radius: 15px 50px 30px; padding: 15px;">
+          <p style="text-align: center; padding: 0;">Volunteers</p>
+        </div>
+
+        <div class="column-one-third" style="border-style:solid; margin:2px; border-radius: 15px 50px 30px; padding: 15px;">
+          <p style="text-align: center; padding: 0;">Schools</p>
+        </div>
+
+        <div class="column-one-third" style="border-style:solid; margin:2px; border-radius: 15px 50px 30px; padding: 15px;">
+          <p style="text-align: center; padding: 0;">Organisations</p>
+        </div>
+      </div>
+
+      <p>VolunteerMe wants to provide a platform to all the wonderful people Northern Ireland to offer. Volunteer profiles can be verified with AccessNI so you know immediately who is available for your fundraising activities/workshops without the wait.</p>
+      </div>
+      <h3 id="signin">Sign in header </h3>
+      <p>SIGN IN BOX</p>
+      <p>LOG IN BOX</p>
+
+      <h3 class="organisations">
+      <div class="grid-row">
+
+      <div class="column-one-quarter">
+        <a href="LINK-TO-MARIE-CURIE-PROFILE-PAGE"><img src="https://www.mariecurie.org.uk/globalassets/media/images/media-centre/media-resources-for-image-listing/marie-curie-logo.png?&w=750&h=440" width="250" height="150"></a>  
+        </div>
+
+      <div class="column-one-quarter">
+        <a href="LINK-TO-MARIE-CURIE-PROFILE-PAGE"><img src="https://www.mariecurie.org.uk/globalassets/media/images/media-centre/media-resources-for-image-listing/marie-curie-logo.png?&w=750&h=440" width="250" height="150"></a>  
+        </div>
+
+      <div class="column-one-quarter">
+        <a href="LINK-TO-MARIE-CURIE-PROFILE-PAGE"><img src="https://www.mariecurie.org.uk/globalassets/media/images/media-centre/media-resources-for-image-listing/marie-curie-logo.png?&w=750&h=440" width="250" height="150"></a>  
+        </div>
+
+      <div class="column-one-quarter">
+        <a href="LINK-TO-MARIE-CURIE-PROFILE-PAGE"><img src="https://www.mariecurie.org.uk/globalassets/media/images/media-centre/media-resources-for-image-listing/marie-curie-logo.png?&w=750&h=440" width="250" height="150"></a>  
+        </div>
+
+    </div>
+      
     </div>
   </div>
 </main>
