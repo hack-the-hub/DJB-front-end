@@ -29,5 +29,11 @@ router.get('/examples/over-18', function (req, res) {
 })
 
 // add your routes here
+router.get('/orgs/create', function (req, res) {
+  // get the answer from the query string (eg. ?over18=false)
+  // var over18 = req.query.over18
+    res.render('orgs/create')
+})
+
 
 module.exports = router
