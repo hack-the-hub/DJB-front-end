@@ -7,13 +7,82 @@
 {% block content %}
 
 <main id="content" role="main">
-
-  <h1 class="heading-xlarge">
-    Organisation Data
-  </h1>
-  <p class="lede">
-    '{{ charity.name }}'
-  </p>
+<div class="grid-row">
+    <div class="column-two-thirds">
+    
+<table class="check-your-answers">
+    <thead>
+        <tr>
+            <th colspan="3">
+                <h2 class="heading-xlarge">
+        {{ charity.name }} </h2>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Logo Here
+            </td>
+            <td>
+                Location
+                <br>
+                <br> Category
+                <br>
+                <br>
+                <td>
+                </td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ charity.mission }}
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                News:
+                <br> News Articles here
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Followers:
+                <br> followers here
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Learn More:
+                <br> Email
+                <br> Web
+                <br> Phone
+                <br>
+            </td>
+            <td>
+            </td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        </tbody>
+</table>
 
 
 <form action="/orgs/follow" method="post" class="form">
@@ -21,6 +90,12 @@
       <input type="submit" class="button" value="Follow!">
       <input type="hidden" name="charity_id" value="{{ charity.name }}">
     </div>
+</form>
+
+	</div>
+    
+  </div>
+
 </main>
 
 {% endblock %}
