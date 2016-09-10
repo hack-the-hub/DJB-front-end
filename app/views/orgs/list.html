@@ -1,0 +1,19 @@
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+  List of Organisations
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<ul>
+	   {% for charity in charities %}
+	      <li><a href="./view/{{charity.charity_id}}">{{ charity.name }}: {{ charity.mission }}</a></li>
+	   {% endfor %}
+	</ul>
+
+</main>
+
+{% endblock %}
