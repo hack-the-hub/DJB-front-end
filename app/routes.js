@@ -72,5 +72,8 @@ router.get('/orgs/view/', function(req, res) {
 })
 
 // add your routes here
+router.get('/volunteers/:id', function(req, res) {  
+    res.render('volunteers/view')
+})
 
 module.exports = router
