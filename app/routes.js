@@ -1,31 +1,37 @@
 var express = require('express')
+var request = require('request')
 var router = express.Router()
 
-router.get('/', function (req, res) {
-  res.render('index')
+router.get('/', function(req, res) {
+    res.render('index')
 })
 
-// Example routes - feel free to delete these
+router.get('/orgs/view/:charity_id', function(req, res) {  
+    // This is where we'd make a request to an API
+    // request('url for aPI goes here' + req.params.charity_id, function(error, response, body) {
+    //     if (!error && response.statusCode == 200) {
+    //         // var postcode = JSON.parse(body).result;
+    //         console.log(postcode);
+    //         res.render('orgs/view', { 'charity': charity })
+    //     }
+    //     else{
+    //     res.render('ohsnap/404', { 'charity': charity })
+    //     }
+    // });
 
-// Passing data into a page
+    var charity = {
+        "charity_id": "12345",
+        "name": "Awesome Badger Charity",
+        "registered": "19790201",
+        "address": "1, the street, the town, the world, BT1XXp",
+        "website": "http://example.org",
+        "email": "blah@example.org",
+        "phone": "28949128741",
+        "mission": "to save all the badgers from guns"
+    };
 
-router.get('/examples/template-data', function (req, res) {
-  res.render('examples/template-data', { 'name': 'Foo' })
-})
+    res.render('orgs/view', { 'charity': charity })
 
-// Branching
-
-router.get('/examples/over-18', function (req, res) {
-  // get the answer from the query string (eg. ?over18=false)
-  var over18 = req.query.over18
-
-  if (over18 === 'false') {
-    // redirect to the relevant page
-    res.redirect('/examples/under-18')
-  } else {
-    // if over18 is any other value (or is missing) render the page requested
-    res.render('examples/over-18')
-  }
 })
 
 // add your routes here
