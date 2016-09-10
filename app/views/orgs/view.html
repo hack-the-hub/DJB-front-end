@@ -14,7 +14,9 @@
 <p class="lede">
     {{charity.mission}}
 </p>
-
+<p class="lede">
+    So far, people have done these amazing things.
+</p>
 <div class="grid-row">
     <div class="column-half">
         <div class="govuk-box-highlight">
@@ -40,11 +42,13 @@
         </div>
     </div>
 </div>
-<h2 class="heading-large">People Helping Out</h2> 
+<h2 class="heading-large">People Helping {{charity.name}}</h2> 
 {% for follower in charity.followers %}
 <div class="notice">
     <img class="avatar" src="/public/images/avatar.jpeg" alt="avatar" />
-    <a href="/volunteers/1234">{{ follower.name }}</a>    
+    <p class="lede"><a href="/volunteers/1234">{{ follower.name }}</a> Has been helping out at {{charity.name}}
+    for some time now. Visit their profile to see the contribution they have been making!
+    </p>
 </div>
 {% endfor %}
 
@@ -53,9 +57,9 @@
     <p class="lede">
     This organisation help out in these sorts of areas:
 
-    <ul>
+    <ul class="list list-bullet">
     {% for client in charity.clients %}
-        <li>{{ client.description }}
+        <li>{{ client.description }} <a href="/orgs/view/code/{{client.code}}">(more organisations help)</a>
     {% endfor %}
     {% for service in charity.services %}
         <li>{{ service.description }}
