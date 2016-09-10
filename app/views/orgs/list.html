@@ -7,13 +7,49 @@
 {% block content %}
 
 <main id="content" role="main">
+<div class="grid-row">
+      <div class="column-one-half">
 
-	<ul>
-	   {% for charity in charities %}
-	      <li><a href="./view/{{charity.charity_id}}">{{ charity.name }}: {{ charity.mission }}</a></li>
-	   {% endfor %}
-	</ul>
+        <div class="data">
+          <h2 class="bold-xxlarge">{{ total }}</h2>
+          <p class="bold-xsmall">Organisations in NI</p>
+        </div>
 
+      </div>
+      <div class="column-one-half">
+
+        <div class="text">
+          <p class="lede">That's a lot of help needed.</p>
+        </div>
+
+      </div>      
+    </div>
+  <table>
+  <thead>
+    <tr>
+      <th scope="col">Organisation</th>
+      <th class="numeric" scope="col">Website</th>
+      <th>Join In</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for charity in charities %}
+    <tr>
+      <td>{{ charity.name }}</td>
+      <td><a href="http://{{ charity.website }}" target="_blank">{{ charity.website }}</a> </td>
+      <td>
+<!-- 		<form action="/orgs/follow" method="post" class="form">
+		    <div class="form-group">
+		        <input type="submit" class="button" value="I'm In.">
+		        <input type="hidden" name="url" value="{{ charity.url }}">
+		    </div>
+		</form> -->
+		<a href="/orgs/view/{{charity.charity_id}}">Find out more...</a>
+      </td>
+    </tr>
+{% endfor %}    
+  </tbody>
+</table>
 </main>
 
 {% endblock %}

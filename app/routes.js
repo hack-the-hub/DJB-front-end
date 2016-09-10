@@ -7,109 +7,42 @@ router.get('/', function(req, res) {
 })
 
 router.get('/orgs/view/:charity_id', function(req, res) {
-    // This is where we'd make a request to an API
-    // request('url for aPI goes here' + req.params.charity_id, function(error, response, body) {
-    //     if (!error && response.statusCode == 200) {
-    //         // var postcode = JSON.parse(body).result;
-    //         console.log(postcode);
-    //         res.render('orgs/view', { 'charity': charity })
-    //     }
-    //     else{
-    //     res.render('ohsnap/404', { 'charity': charity })
-    //     }
-    // });
-
-    var charity = {
-        "charity_id": "12345",
-        "name": "Awesome Badger Charity",
-        "registered": "19790201",
-        "address": "1, the street, the town, the world, BT1XXp",
-        "website": "http://example.org",
-        "email": "blah@example.org",
-        "phone": "28949128741",
-        "mission": "to save all the badgers from guns",
-        "followers": [
-            { "name": "Jim Deadly" },
-            { "name": "Maria Helpful" },
-        ]
-    };
-
-    res.render('orgs/view', { 'charity': charity })
-
+    var requesturl = 'http://django.tyndyll.net/charities/organisations/' + req.params.charity_id + '?format=json';
+    request(requesturl, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var charity = JSON.parse(response.body);
+            console.log(charity.clients);
+            charity.followers = [{ "name": "Jim Deadly" },{ "name": "Maria Helpful" }];
+            res.render('orgs/view', { 'charity': charity })
+        } else {
+            res.render('ohsnap/404')
+        }
+    });
 })
 
 router.get('/orgs/view/', function(req, res) {
     // This is where we'd make a request to an API
-    // request('url for aPI goes here' + req.params.charity_id, function(error, response, body) {
-    //     if (!error && response.statusCode == 200) {
-    //         // var postcode = JSON.parse(body).result;
-    //         console.log(postcode);
-    //         res.render('orgs/view', { 'charity': charity })
-    //     }
-    //     else{
-    //     res.render('ohsnap/404', { 'charity': charity })
-    //     }
-    // });
-
-    var charities = [{
-        "charity_id": "12345",
-        "name": "Awesome Badger Charity",
-        "registered": "19790201",
-        "address": "1, the street, the town, the world, BT1XXp",
-        "website": "http://example.org",
-        "email": "blah@example.org",
-        "phone": "28949128741",
-        "mission": "to save all the badgers from guns"
-    }, {
-        "charity_id": "54321",
-        "name": "Coding for a Purpose",
-        "registered": "19790201",
-        "address": "1, the street, the town, the world, BT1XXp",
-        "website": "http://example.org",
-        "email": "blah@example.org",
-        "phone": "28949128741",
-        "mission": "Writing code to make the world a better place. For Free."
-    }];
-
-    res.render('orgs/list', { 'charities': charities })
-
+    request('http://django.tyndyll.net/charities/organisations?format=json', function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var detail = JSON.parse(body);
+            var charities = detail.results;
+            var count = detail.count;
+            // console.log(charities);
+            res.render('orgs/list', { 'charities': charities, 'total': count })
+        } else {
+            res.render('ohsnap/404')
+        }
+    });
+    // res.render('orgs/list', { 'charities': charities })
 })
 
 router.post('/orgs/follow', function(req, res) {
-
-        // This is where we'd make a request to POST API
-        // request('url for aPI goes here' + req.params.charity_id, function(error, response, body) {
-        //     if (!error && response.statusCode == 200) {
-        //         // var postcode = JSON.parse(body).result;
-        //         console.log(postcode);
-        //         res.render('orgs/view', { 'charity': charity })
-        //     }
-        //     else{
-        //     res.render('ohsnap/404', { 'charity': charity })
-        //     }
-        // });
-
-    var charity = {
-        "charity_id": "12345",
-        "name": "Awesome Badger Charity",
-        "registered": "19790201",
-        "address": "1, the street, the town, the world, BT1XXp",
-        "website": "http://example.org",
-        "email": "blah@example.org",
-        "phone": "28949128741",
-        "mission": "to save all the badgers from guns",
-        "followers": [
-            { "name": "Jim Deadly" },
-            { "name": "Maria Helpful" },
-        ]
-    };
-
-        console.log(req.body);
-    res.render('orgs/view', { 'charity': charity })
+    console.log(req.body);
+    res.render('ohsnap/yourock')
 })
 
 // add your routes here
-router.get('/volunteers/:id', function(req, res) {  
+router.get('/volunteers/:id', function(req, res) {
     res.render('volunteers/view')
 })
 
