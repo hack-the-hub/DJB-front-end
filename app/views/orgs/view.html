@@ -50,17 +50,27 @@
 
     <h3 class="heading-medium">Want to join in?</h3>
 
-    <p>
-    This organisation works in the following areas:
+    <p class="lede">
+    This organisation help out in these sorts of areas:
+
+    <ul>
+    {% for client in charity.clients %}
+        <li>{{ client.description }}
+    {% endfor %}
+    {% for service in charity.services %}
+        <li>{{ service.description }}
+    {% endfor %}    
+    </ul>
     </p>
 
-    <p>
-    They need people that can:
-    </p>
+    <h2 class="heading-large">Sounds like something you can help with?</h2>
 
+    <p>
+      Getting involved is easy. Just press the button below and we will make sure the organisations knows you want to help out. Thank you, together we an make the world more awesome!
+    </p>
     <form action="/orgs/follow" method="post" class="form">    
         <div class="form-group">
-            <input type="submit" class="button" value="I'm In.">
+            <input type="submit" class="button" value="Lets Go">
             <input type="hidden" name="charity_id" value="{{ charity.name }}">
         </div>
     </form>
